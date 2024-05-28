@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* use background-size to set the height of the gradient */
+body {
+  background: rgb(27, 78, 109);
+  background: linear-gradient(
+    180deg,
+    rgba(27, 78, 109, 1) 3%,
+    rgba(27, 78, 109, 1) 22%,
+    rgba(178, 194, 198, 1) 100%
+  );
+  background-size: 100% 100%;
+}

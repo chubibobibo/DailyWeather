@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 function LoginPage() {
   return (
-    <main>
+    <main className='h-screen'>
       <p>No Account yet?</p>
       <Link to='/register'>Click here to register</Link>
     </main>
