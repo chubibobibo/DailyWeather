@@ -1,3 +1,4 @@
+import "express-async-errors";
 import { ExpressError } from "../error/expressError.js";
 import { UserModel } from "../models/UserModel.js";
 
