@@ -9,6 +9,9 @@ import DashboardLayout from "./pages/DashboardLayout";
 import ErrorPage from "./pages/ErrorPage";
 import Index from "./pages/Index";
 
+//import acions
+import { action as registerAction } from "./pages/RegisterPage.jsx";
+
 function App() {
   const router = createBrowserRouter([
     {
@@ -27,6 +30,7 @@ function App() {
         {
           path: "register",
           element: <RegisterPage />,
+          action: registerAction,
         },
         {
           path: "Dashboard",
