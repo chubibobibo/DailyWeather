@@ -1,6 +1,7 @@
 import { toast } from "react-toastify";
 import axios from "axios";
-import { useNavigation, redirect, Form } from "react-router-dom";
+import { redirect, Form } from "react-router-dom";
+import { ThemeProvider } from "@material-tailwind/react";
 
 //import components
 import CardComponents from "../components/CardComponents";
@@ -23,13 +24,29 @@ export const action = async ({ request }) => {
     return err;
   }
 };
+
 function RegisterPage() {
+  //custom theme
+  const customTheme = {
+    component: {
+      // defaultProps: { ... },
+      // valid: { ... },
+      styles: {
+        color: {
+          blue: "#1a237e",
+        },
+      },
+    },
+  };
+
   return (
     // set the height of the whole page to screen
     <main className='h-screen'>
       <section className='flex flex-col items-center justify-center h-full'>
         <Form method='post'>
-          <CardComponents />
+          <ThemeProvider value={customTheme}>
+            <CardComponents label={"Register"} route={"/login"} />
+          </ThemeProvider>
         </Form>
       </section>
     </main>

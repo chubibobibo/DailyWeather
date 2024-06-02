@@ -11,6 +11,7 @@ import Index from "./pages/Index";
 
 //import acions
 import { action as registerAction } from "./pages/RegisterPage.jsx";
+import { action as loginAction } from "./pages/LoginPage.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -26,6 +27,7 @@ function App() {
         {
           path: "login",
           element: <LoginPage />,
+          action: loginAction,
         },
         {
           path: "register",
