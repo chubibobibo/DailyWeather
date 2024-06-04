@@ -20,7 +20,7 @@ function CardComponents({ label, route }) {
   const isSubmitting = navigation.state === "submitting";
 
   return (
-    <Card className='sm:w-96'>
+    <Card className='md:w-74 lg:w-96'>
       <CardHeader
         variant='gradient'
         color='blue'
@@ -75,7 +75,13 @@ function CardComponents({ label, route }) {
             Submitting...
           </Button>
         ) : (
-          <Button variant='gradient' fullWidth type='submit' color='blue-900'>
+          <Button
+            // className='bg-[#0d47a1]'
+            variant='gradient'
+            fullWidth
+            type='submit'
+            color='blue'
+          >
             {label}
           </Button>
         )}
