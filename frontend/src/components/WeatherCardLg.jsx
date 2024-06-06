@@ -10,19 +10,54 @@ import {
   Tooltip,
 } from "@material-tailwind/react";
 
+import { useContext } from "react";
+import { WeatherDataContext } from "../pages/Index";
+
+//weather code imports
+import { weatherCodes } from "../utils/weatherCodes.js";
+
 function WeatherCardLg() {
+  const context = useContext(WeatherDataContext);
+  const data = context;
+
+  // console.log(data.hourly.weather_code[0]);
+  console.log(context);
+
+  //weatherCodes mapped
+  const newWeatherCodes = weatherCodes.map((newCodes) => {
+    return newCodes.code;
+  });
+  console.log(newWeatherCodes);
+  // console.log(newWeatherCodes.icon);
   return (
     <section className='hidden md:flex lg:flex'>
-      <Card className='w-full max-w-[125rem] bg-[#eeeeee] flex-row mx-2 my-1'>
+      <Card className='w-full max-w-[125rem] max-h-[35rem] bg-[#eeeeee] flex-row mx-2 my-1'>
         <CardHeader
           shadow={false}
           floated={false}
-          className='m-0 w-2/5 shrink-0 rounded-r-none'
+          className='m-0 w-2/5 shrink-0 rounded-r-none bg-[#eeeeee] flex justify-center'
         >
           <img
-            src='https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80'
+            // src='../Icons128/fog.png'
+            // src={
+            //   data && data.hourly.weather_code[0] === 1
+            //     ? "../Icons128/partly-cloudy.png"
+            //     : "../Icons128/sun-1845.png"
+            // }
+            // src={weatherCodes.map((newCodes) => {
+            //   // console.log(`this is from our object ${newCodes.code}`);
+            //   // console.log(data?.hourly?.weather_code[0]);
+            //   newCodes.code == data?.hourly?.weather_code[0]
+            //     ? `${newCodes.icon}`
+            //     : "../Icons128/fog.png";
+            // })}
+            src={
+              newWeatherCodes.includes(data?.hourly?.weather_code[0])
+                ? `${newWeatherCodes[0]}`
+                : "../Icons128/fog.png"
+            }
             alt='card-image'
-            className='h-full w-full object-cover'
+            className='h-30 w-30 object-cover'
           />
         </CardHeader>
         <CardBody>
@@ -58,6 +93,7 @@ function WeatherCardLg() {
             </Button>
           </a>
         </CardBody>
+        {/* <section>{data.elevation}</section> */}
       </Card>
     </section>
   );

@@ -13,7 +13,7 @@ import Index from "./pages/Index";
 import { action as registerAction } from "./pages/RegisterPage.jsx";
 import { action as loginAction } from "./pages/LoginPage.jsx";
 //loaders
-import { loader as weatherLoader } from "./pages/Index.jsx";
+// import { loader as weatherLoader } from "./pages/Index.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -25,7 +25,7 @@ function App() {
         {
           index: true,
           element: <Index />,
-          loader: weatherLoader,
+          // loader: weatherLoader,
         },
         {
           path: "login",
