@@ -14,21 +14,16 @@ import { useContext } from "react";
 import { WeatherDataContext } from "../pages/Index";
 
 //weather code imports
-import { weatherCodes } from "../utils/weatherCodes.js";
+import { weatherCodes, weatherCond } from "../utils/weatherCodes.js";
 
 function WeatherCardLg() {
   const context = useContext(WeatherDataContext);
   const data = context;
+  console.log(data);
+  const codeData = data?.current?.weather_code; // save response from API to var to use as key in weatherCodes
+  console.log(codeData);
+  // console.log(weatherCodes?.[0]); //acess key in object if key is int
 
-  // console.log(data.hourly.weather_code[0]);
-  console.log(context);
-
-  //weatherCodes mapped
-  const newWeatherCodes = weatherCodes.map((newCodes) => {
-    return newCodes.code;
-  });
-  console.log(newWeatherCodes);
-  // console.log(newWeatherCodes.icon);
   return (
     <section className='hidden md:flex lg:flex'>
       <Card className='w-full max-w-[125rem] max-h-[35rem] bg-[#eeeeee] flex-row mx-2 my-1'>
@@ -38,34 +33,17 @@ function WeatherCardLg() {
           className='m-0 w-2/5 shrink-0 rounded-r-none bg-[#eeeeee] flex justify-center'
         >
           <img
-            // src='../Icons128/fog.png'
-            // src={
-            //   data && data.hourly.weather_code[0] === 1
-            //     ? "../Icons128/partly-cloudy.png"
-            //     : "../Icons128/sun-1845.png"
-            // }
-            // src={weatherCodes.map((newCodes) => {
-            //   // console.log(`this is from our object ${newCodes.code}`);
-            //   // console.log(data?.hourly?.weather_code[0]);
-            //   newCodes.code == data?.hourly?.weather_code[0]
-            //     ? `${newCodes.icon}`
-            //     : "../Icons128/fog.png";
-            // })}
-            src={
-              newWeatherCodes.includes(data?.hourly?.weather_code[0])
-                ? `${newWeatherCodes[0]}`
-                : "../Icons128/fog.png"
-            }
+            src={weatherCodes?.[codeData]} //acess key in object if key is int
             alt='card-image'
-            className='h-30 w-30 object-cover'
+            className='h-30 w-30 object-contain m-2'
           />
         </CardHeader>
         <CardBody>
-          <Typography variant='h6' color='gray' className='mb-4 uppercase'>
-            startups
-          </Typography>
           <Typography variant='h4' color='blue-gray' className='mb-2'>
-            Lyft launching cross-platform service this week
+            {weatherCond?.[codeData]}
+          </Typography>
+          <Typography variant='h6' color='gray' className='mb-4 uppercase'>
+            Temperature: {data?.current?.temperature_2m} C
           </Typography>
           <Typography color='gray' className='mb-8 font-normal'>
             Like so many organizations these days, Autodesk is a company in
