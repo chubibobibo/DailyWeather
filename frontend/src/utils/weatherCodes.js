@@ -1,139 +1,190 @@
-// export const weatherCodes = {
-//   0: "clear sky",
-//   1: "mainly clear",
-//   2: "partly cloudy",
-//   3: "overcast",
-// };
+export const weatherCodes = {
+  0: "../Icons128/sun-1845.png",
+  1: "../Icons128/sun-1845.png",
+  2: "../Icons128/partly-cloudy.png",
+  3: "../Icons128/overcast.png",
+  45: "../Icons128/fog.png",
+  48: "../Icons128/fog.png",
+  51: "../Icons128/light-drizzle.png",
+  53: "../Icons128/light-drizzle.png",
+  55: "../Icons128/light-drizzle.png",
+  56: "../Icons128/light-drizzle.png",
+  57: "../Icons128/light-drizzle.png",
+  61: "../Icons128/light-rain.png",
+  63: "../Icons128/moderate-rain.png",
+  65: "../Icons128/heavy-rain.png",
+  66: "../Icons128/light-rain.png",
+  67: "../Icons128/heavy-rain.png",
+  71: "../Icons128/light-snow.png",
+  73: "../Icons128/light-snow.png",
+  75: "../Icons128/heavy-snow.png",
+  77: "../Icons128/snow-grains.png",
+  80: "../Icons128/light-rain.png",
+  81: "../Icons128/moderate-rain.png",
+  82: "../Icons128/heavy-rain.png",
+  85: "../Icons128/light-snow.png",
+  86: "../Icons128/heavy-snow.png",
+  95: "../Icons128/thunderstorm.png",
+};
 
-export const weatherCodes = [
-  {
-    code: 0,
-    condition: "clear sky",
-    icon: "../Icons128/sun-1845.png",
-  },
-  {
-    code: 1,
-    condition: "mainly clear",
-    icon: "../Icons128/sun-1845.png",
-  },
-  {
-    code: 2,
-    condition: "partly cloudy",
-    icon: "../Icons128/partly-cloudy.png",
-  },
-  {
-    code: 3,
-    condition: "overcast",
-    icon: "../Icons128/overcast.png",
-  },
-  {
-    code: 45,
-    condition: "fog",
-    icon: "../Icons128/fog.png",
-  },
-  {
-    code: 48,
-    condition: "rime fog",
-    icon: "../Icons128/fog.png",
-  },
-  {
-    code: 51,
-    condition: "light drizzle",
-    icon: "../Icons128/light-drizzle.png",
-  },
-  {
-    code: 53,
-    condition: "moderate drizzle",
-    icon: "../Icons128/light-drizzle.png",
-  },
-  {
-    code: 55,
-    condition: "dense drizzle",
-    icon: "../Icons128/light-drizzle.png",
-  },
-  {
-    code: 56,
-    condition: "freezing drizzle: light",
-    icon: "../Icons128/light-drizzle.png",
-  },
-  {
-    code: 57,
-    condition: "freezing drizzle: dense",
-    icon: "../Icons128/light-drizzle.png",
-  },
-  {
-    code: 61,
-    condition: "light rain",
-    icon: "../Icons128/light-rain.png",
-  },
-  {
-    code: 63,
-    condition: "moderate rain",
-    icon: "../Icons128/moderate-rain.png",
-  },
-  {
-    code: 65,
-    condition: "heavy rain",
-    icon: "../Icons128/heavy-rain.png",
-  },
-  {
-    code: 66,
-    condition: "freezing rain: light",
-    icon: "../Icons128/light-rain.png",
-  },
-  {
-    code: 67,
-    condition: "freezing rain: dense",
-    icon: "../Icons128/heavy-rain.png",
-  },
-  {
-    code: 71,
-    condition: "light snow",
-    icon: "../Icons128/light-snow.png",
-  },
-  {
-    code: 73,
-    condition: "moderate snow",
-    icon: "../Icons128/light-snow.png",
-  },
-  {
-    code: 75,
-    condition: "heavy snow",
-    icon: "../Icons128/heavy-snow.png",
-  },
-  {
-    code: 77,
-    condition: "snow grains",
-    icon: "../Icons128/snow-grains.png",
-  },
-  {
-    code: 80,
-    condition: "rain showers",
-    icon: "../Icons128/light-rain.png",
-  },
-  {
-    code: 81,
-    condition: "moderate rain showers",
-    icon: "../Icons128/moderate-rain.png",
-  },
-  {
-    code: 82,
-    condition: "heavy rain showers",
-    icon: "../Icons128/heavy-rain.png",
-  },
-  {
-    code: 85,
-    condition: "slight snow shower",
-    icon: "../Icons128/light-snow.png",
-  },
-  {
-    code: 86,
-    condition: "heavy snow shower",
-    icon: "../Icons128/heavy-snow.png",
-  },
-  {
-    code: 95,
-    condition: "thunder storm",
-    icon: "../Icons128/thunderstorm.png",
-  },
-];
+export const weatherCond = {
+  0: "Clear Sky",
+  1: "Mainly clear",
+  2: "Partly cloudy",
+  3: "Overcast",
+  45: "Fog",
+  48: "Depositing rime fog",
+  51: "Light drizzle",
+  53: "Moderate drizzle",
+  55: "Dense drizzle",
+  56: "Light freezing drizzle",
+  57: "Dense freezing drizle",
+  61: "Slight rain",
+  63: "Moderate rain",
+  65: "Heavy rain",
+  66: "Light freezing rain",
+  67: "Heavy freezing rain",
+  71: "Slight snow fall",
+  73: "Moderate snow fall",
+  75: "Heavy snow fall",
+  77: "Snow grains",
+  80: "Slight rain showers",
+  81: "Moderate rain showers",
+  82: "Heavy rain showers",
+  85: "Slight snow showers",
+  86: "Heavy snow showers",
+  95: "Slight to moderate thunderstorms",
+};
+
+// export const weatherCodes = [
+//   {
+//     code: 0,
+//     condition: "clear sky",
+//     icon: "../Icons128/sun-1845.png",
+//   },
+//   {
+//     code: 1,
+//     condition: "mainly clear",
+//     icon: "../Icons128/sun-1845.png",
+//   },
+//   {
+//     code: 2,
+//     condition: "partly cloudy",
+//     icon: "../Icons128/partly-cloudy.png",
+//   },
+//   {
+//     code: 3,
+//     condition: "overcast",
+//     icon: "../Icons128/overcast.png",
+//   },
+//   {
+//     code: 45,
+//     condition: "fog",
+//     icon: "../Icons128/fog.png",
+//   },
+//   {
+//     code: 48,
+//     condition: "rime fog",
+//     icon: "../Icons128/fog.png",
+//   },
+//   {
+//     code: 51,
+//     condition: "light drizzle",
+//     icon: "../Icons128/light-drizzle.png",
+//   },
+//   {
+//     code: 53,
+//     condition: "moderate drizzle",
+//     icon: "../Icons128/light-drizzle.png",
+//   },
+//   {
+//     code: 55,
+//     condition: "dense drizzle",
+//     icon: "../Icons128/light-drizzle.png",
+//   },
+//   {
+//     code: 56,
+//     condition: "freezing drizzle: light",
+//     icon: "../Icons128/light-drizzle.png",
+//   },
+//   {
+//     code: 57,
+//     condition: "freezing drizzle: dense",
+//     icon: "../Icons128/light-drizzle.png",
+//   },
+//   {
+//     code: 61,
+//     condition: "light rain",
+//     icon: "../Icons128/light-rain.png",
+//   },
+//   {
+//     code: 63,
+//     condition: "moderate rain",
+//     icon: "../Icons128/moderate-rain.png",
+//   },
+//   {
+//     code: 65,
+//     condition: "heavy rain",
+//     icon: "../Icons128/heavy-rain.png",
+//   },
+//   {
+//     code: 66,
+//     condition: "freezing rain: light",
+//     icon: "../Icons128/light-rain.png",
+//   },
+//   {
+//     code: 67,
+//     condition: "freezing rain: dense",
+//     icon: "../Icons128/heavy-rain.png",
+//   },
+//   {
+//     code: 71,
+//     condition: "light snow",
+//     icon: "../Icons128/light-snow.png",
+//   },
+//   {
+//     code: 73,
+//     condition: "moderate snow",
+//     icon: "../Icons128/light-snow.png",
+//   },
+//   {
+//     code: 75,
+//     condition: "heavy snow",
+//     icon: "../Icons128/heavy-snow.png",
+//   },
+//   {
+//     code: 77,
+//     condition: "snow grains",
+//     icon: "../Icons128/snow-grains.png",
+//   },
+//   {
+//     code: 80,
+//     condition: "rain showers",
+//     icon: "../Icons128/light-rain.png",
+//   },
+//   {
+//     code: 81,
+//     condition: "moderate rain showers",
+//     icon: "../Icons128/moderate-rain.png",
+//   },
+//   {
+//     code: 82,
+//     condition: "heavy rain showers",
+//     icon: "../Icons128/heavy-rain.png",
+//   },
+//   {
+//     code: 85,
+//     condition: "slight snow shower",
+//     icon: "../Icons128/light-snow.png",
+//   },
+//   {
+//     code: 86,
+//     condition: "heavy snow shower",
+//     icon: "../Icons128/heavy-snow.png",
+//   },
+//   {
+//     code: 95,
+//     condition: "thunder storm",
+//     icon: "../Icons128/thunderstorm.png",
+//   },
+// ];

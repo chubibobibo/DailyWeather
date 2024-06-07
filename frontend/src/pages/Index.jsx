@@ -9,11 +9,12 @@ import { useEffect, useState, createContext } from "react";
 
 //api
 const apiBase = {
-  // apiUrl: "http://api.openweathermap.org/data/2.5/",
   apiUrl:
-    "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m&hourly=temperature_2m,cloud_cover,weather_code",
-  apiKey: "661f40b7510beeb48bf0c439faf87066",
+    // "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m&hourly=temperature_2m,cloud_cover,weather_code",
+    "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m,is_day,weather_code",
+  // apiKey: "661f40b7510beeb48bf0c439faf87066",
 };
+
 //context to pass data to components
 export const WeatherDataContext = createContext();
 
@@ -27,6 +28,7 @@ function Index() {
   //state for weather data
   const [weatherData, setWeatherData] = useState(null);
 
+  //function to obtain location using browsers geolocation
   const getLocation = async () => {
     if ("geolocation" in navigator) {
       await navigator.geolocation.getCurrentPosition(function (position) {
@@ -47,11 +49,7 @@ function Index() {
       await getLocation();
       try {
         if (position) {
-          const data = await axios.get(
-            `${apiBase.apiUrl}`
-            // `${apiBase.apiUrl}/weather?lat=${position.latitude}&lon=${position.longitude}&appid=${apiBase.apiKey}`
-            // `${apiBase.apiUrl}/weather?q=London&appid=${apiBase.apiKey}`
-          );
+          const data = await axios.get(`${apiBase.apiUrl}`);
           setWeatherData(data.data);
         }
       } catch (err) {
