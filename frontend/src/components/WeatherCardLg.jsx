@@ -10,6 +10,7 @@ import {
   Tooltip,
 } from "@material-tailwind/react";
 
+//obtaining data from the context
 import { useContext } from "react";
 import { WeatherDataContext } from "../pages/Index";
 
@@ -17,12 +18,18 @@ import { WeatherDataContext } from "../pages/Index";
 import { weatherCodes, weatherCond } from "../utils/weatherCodes.js";
 
 function WeatherCardLg() {
+  //NOTE: passed 2 objects as context values in order to access them separately
   const context = useContext(WeatherDataContext);
-  const data = context;
-  console.log(data);
-  const codeData = data?.current?.weather_code; // save response from API to var to use as key in weatherCodes
-  console.log(codeData);
-  // console.log(weatherCodes?.[0]); //acess key in object if key is int
+
+  //declare to variables for each of the object we passed as context provider
+  const data1 = context?.value1;
+  console.log(data1);
+  const data2 = context?.value2;
+  // console.log(data2);
+
+  // save response from API to var to use as key in weatherCodes
+  const codeData = data1?.current?.weather_code;
+  // console.log(`This is ${codeData}`);
 
   return (
     <section className='hidden md:flex lg:flex'>
@@ -33,6 +40,7 @@ function WeatherCardLg() {
           className='m-0 w-2/5 shrink-0 rounded-r-none bg-[#eeeeee] flex justify-center'
         >
           <img
+            // {/* access the icon using the weatherCond object and using weather code received from the API */}
             src={weatherCodes?.[codeData]} //acess key in object if key is int
             alt='card-image'
             className='h-30 w-30 object-contain m-2'
@@ -40,10 +48,14 @@ function WeatherCardLg() {
         </CardHeader>
         <CardBody>
           <Typography variant='h4' color='blue-gray' className='mb-2'>
-            {weatherCond?.[codeData]}
+            {/* access the weather condition using the weatherCond object and using weather code received from the API */}
+            {`Today's Weather: ${weatherCond?.[codeData]}`}
+          </Typography>
+          <Typography variant='h6' color='blue-gray' className='mb-2'>
+            {`${data2}`}
           </Typography>
           <Typography variant='h6' color='gray' className='mb-4 uppercase'>
-            Temperature: {data?.current?.temperature_2m} C
+            Temperature: {data1?.current?.temperature_2m} C
           </Typography>
           <Typography color='gray' className='mb-8 font-normal'>
             Like so many organizations these days, Autodesk is a company in
@@ -71,7 +83,6 @@ function WeatherCardLg() {
             </Button>
           </a>
         </CardBody>
-        {/* <section>{data.elevation}</section> */}
       </Card>
     </section>
   );
