@@ -7,13 +7,9 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { useEffect, useState, createContext } from "react";
 
-//api
-const apiBase = {
-  apiUrl:
-    // "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m&hourly=temperature_2m,cloud_cover,weather_code",
-    "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m,is_day,weather_code",
-  // apiKey: "661f40b7510beeb48bf0c439faf87066",
-};
+import dayjs from "dayjs";
+import localizedFormat from "dayjs/plugin/localizedFormat";
+dayjs.extend(localizedFormat);
 
 //context to pass data to components
 export const WeatherDataContext = createContext();
@@ -41,13 +37,24 @@ function Index() {
       console.log("Geolocation is not available in your browser.");
     }
   };
+  // console.log(position.latitude);
+  // console.log(position.longitude);
+
+  //api
+  const apiBase = {
+    //current weather condition reading
+    // apiUrl:
+    //   `https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m,is_day,weather_code`,
+    apiUrl: `https://api.open-meteo.com/v1/forecast?latitude=${position.latitude}&longitude=${position.longitude}&current=temperature_2m,is_day,weather_code`,
+    // apiKey: "661f40b7510beeb48bf0c439faf87066",
+  };
 
   //obtain weather data using api in render
   useEffect(() => {
     const dataWeather = async () => {
       //geolocation then set state for position
-      await getLocation();
       try {
+        await getLocation();
         if (position) {
           const data = await axios.get(`${apiBase.apiUrl}`);
           setWeatherData(data.data);
@@ -58,11 +65,19 @@ function Index() {
       }
     };
     dataWeather();
-  }, []);
+  }, [apiBase.apiUrl]); //rerender the page if url changes. url changes with different position
+
+  //date format import
+  // .format(LLLL) converts to time to: Saturday, June 8, 2024 10:00 PM
+  dayjs.extend(localizedFormat);
+  const formattedTime = dayjs(weatherData?.current?.time).format("LLLL");
 
   return (
     <main className='h-screen'>
-      <WeatherDataContext.Provider value={weatherData}>
+      {/* Note: passing 2 values keep it 2 key-value pair to access in the child component*/}
+      <WeatherDataContext.Provider
+        value={{ value1: weatherData, value2: formattedTime }}
+      >
         <WeatherCardLg />
         <WeatherCardSm />
       </WeatherDataContext.Provider>
