@@ -33,7 +33,7 @@ function WeatherCardLg() {
 
   return (
     <section className='hidden md:flex lg:flex'>
-      <Card className='w-full max-w-[125rem] max-h-[35rem] bg-[#eeeeee] flex-row mx-2 my-1'>
+      <Card className='w-full max-w-[125rem] max-h-[35rem] bg-[#eeeeee] flex-row mx-2 my-4'>
         <CardHeader
           shadow={false}
           floated={false}
@@ -52,9 +52,10 @@ function WeatherCardLg() {
             {`Today's Weather: ${weatherCond?.[codeData]}`}
           </Typography>
           <Typography variant='h6' color='blue-gray' className='mb-2'>
+            {/* display formattedTime */}
             {`${data2}`}
           </Typography>
-          <Typography variant='h6' color='gray' className='mb-4 uppercase'>
+          <Typography variant='h6' color='gray' className='mb-4'>
             Temperature: {data1?.current?.temperature_2m} C
           </Typography>
           <Typography color='gray' className='mb-8 font-normal'>
