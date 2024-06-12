@@ -50,10 +50,10 @@ function WeatherCardSm() {
           <Typography variant='h6' color='gray'>
             {`Temperature: ${data1?.current?.temperature_2m} C`}
           </Typography>
-          <Typography variant='lead' color='gray' className='mt-3 font-normal'>
+          {/* <Typography variant='lead' color='gray' className='mt-3 font-normal'>
             Because it&apos;s about motivating the doers. Because I&apos;m here
             to follow my dreams and inspire others.
-          </Typography>
+          </Typography> */}
         </CardBody>
         <CardFooter className='flex items-center justify-between'>
           <div className='flex items-center -space-x-3'></div>

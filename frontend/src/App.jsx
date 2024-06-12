@@ -25,7 +25,6 @@ function App() {
         {
           index: true,
           element: <Index />,
-          // loader: weatherLoader,
         },
         {
           path: "login",

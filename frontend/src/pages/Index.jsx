@@ -1,12 +1,14 @@
 //components import
 import WeatherCardLg from "../components/WeatherCardLg";
 import WeatherCardSm from "../components/WeatherCardSm";
+import WeekForecastCard from "../components/weekForecastCard";
 
 import { toast } from "react-toastify";
 // import { useLoaderData } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState, createContext } from "react";
 
+// date formating
 import dayjs from "dayjs";
 import localizedFormat from "dayjs/plugin/localizedFormat";
 dayjs.extend(localizedFormat);
@@ -45,8 +47,7 @@ function Index() {
     //current weather condition reading
     // apiUrl:
     //   `https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m,is_day,weather_code`,
-    apiUrl: `https://api.open-meteo.com/v1/forecast?latitude=${position.latitude}&longitude=${position.longitude}&current=temperature_2m,is_day,weather_code`,
-    // apiKey: "661f40b7510beeb48bf0c439faf87066",
+    apiUrl: `https://api.open-meteo.com/v1/forecast?latitude=${position.latitude}&longitude=${position.longitude}&current=temperature_2m,is_day,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset`,
   };
 
   //obtain weather data using api in render
@@ -80,6 +81,7 @@ function Index() {
       >
         <WeatherCardLg />
         <WeatherCardSm />
+        <WeekForecastCard />
       </WeatherDataContext.Provider>
     </main>
   );
