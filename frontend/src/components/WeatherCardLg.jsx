@@ -58,13 +58,13 @@ function WeatherCardLg() {
           <Typography variant='h6' color='gray' className='mb-4'>
             Temperature: {data1?.current?.temperature_2m} C
           </Typography>
-          <Typography color='gray' className='mb-8 font-normal'>
+          {/* <Typography color='gray' className='mb-8 font-normal'>
             Like so many organizations these days, Autodesk is a company in
             transition. It was until recently a traditional boxed software
             company selling licenses. Yet its own business model disruption is
             only part of the story
-          </Typography>
-          <a href='#' className='inline-block'>
+          </Typography> */}
+          {/* <a href='#' className='inline-block'>
             <Button variant='text' className='flex items-center gap-2'>
               Learn More
               <svg
@@ -82,7 +82,7 @@ function WeatherCardLg() {
                 />
               </svg>
             </Button>
-          </a>
+          </a> */}
         </CardBody>
       </Card>
     </section>
