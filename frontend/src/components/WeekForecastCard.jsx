@@ -24,10 +24,13 @@ function WeekForecastCard() {
   const weekData = data1?.daily?.weather_code;
   console.log(weekData);
   return (
-    <main className='flex'>
+    <main className='sm:flex-wrap md:flex justify-evenly'>
       {weekData?.map((newWeather) => {
         return (
-          <section key={newWeather.key} className='overflow'>
+          <section
+            key={newWeather.key}
+            className='flex max-w-[25rem] max-h-[25rem] '
+          >
             <Card className='mx-4 my-10'>
               <CardHeader color='blue-gray' className='relative h-56'>
                 <img
@@ -39,11 +42,11 @@ function WeekForecastCard() {
                 <Typography variant='h5' color='blue-gray' className='mb-2'>
                   UI/UX Review Check
                 </Typography>
-                <Typography>
+                {/* <Typography>
                   The place is close to Barceloneta Beach and bus stop just 2
                   min by walk and near to &quot;Naviglio&quot; where you can
                   enjoy the main night life in Barcelona.
-                </Typography>
+                </Typography> */}
               </CardBody>
               <CardFooter className='pt-0'>
                 <Button>Read More</Button>
