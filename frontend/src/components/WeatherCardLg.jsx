@@ -33,7 +33,7 @@ function WeatherCardLg() {
 
   return (
     <section className='hidden md:flex lg:flex'>
-      <Card className='w-full max-w-[125rem] max-h-[35rem] bg-[#eeeeee] flex-row mx-4 my-4'>
+      <Card className='w-full max-w-[140rem] max-h-[35rem] bg-[#eeeeee] flex-row mx-4 my-4'>
         <CardHeader
           shadow={false}
           floated={false}
